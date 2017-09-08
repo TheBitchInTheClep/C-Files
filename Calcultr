@@ -1,0 +1,154 @@
+#include <iostream>
+#include <cstring>
+#include <cstdio>
+using namespace std;
+
+int PRIMER1 = 0;
+double PRIMER2 = 0.0;
+long int ivar = 0;
+long int ivars = 0;
+long double dvars = 0.0;
+long double dvar = 0.0;
+int iper = 0;
+int ipers = 0;
+int dper = 0;
+int dpers = 0;
+char stri[2] = "A";
+long int pls = 0;
+long int mins = 0;
+long int umnozh = 0;
+long int delen = 0;
+char AGAplus[2] = "+";
+char AGAminus[2] = "-";
+char AGAumnozh[2] = "*";
+char AGAdelen[2] = "/";
+
+int main()
+{
+rezero:
+    cout << "Введите первое число: ";
+    cin >> dvar;
+    cout << "\n";
+    
+    ivar = dvar;
+    if(dvar == ivar) iper++;
+    else dper++;
+    
+recurs:
+    cout << "Введите действие: ";
+    cin >> stri;
+    cout << "\n";
+    
+    if (!strcmp(stri, AGAplus)) {
+        pls++;
+        goto replate;
+    }
+    else if (!strcmp(stri, AGAminus)) {
+        mins++;
+        goto replate;
+    }
+    else if (!strcmp(stri, AGAumnozh)) {
+        umnozh++;
+        goto replate;
+    }
+    else if (!strcmp(stri, AGAdelen)) {
+        delen++;
+        goto replate;
+    }
+    else {
+        goto recurs;
+    }
+
+replate:
+    
+    cout << "Введите второе число: ";
+    cin >> dvars;
+    cout << "\n";
+
+    ivars = dvars;
+    if(dvars == ivars) ipers++;
+    else dpers++;
+    
+    if (pls == 1) {
+        if (iper == 1) {
+            cout << ivar << " " << AGAplus << " ";
+            if (ipers == 1) {
+                cout << ivars << " = " << ivar + ivars << "\n\n";
+            }
+            else if (dpers == 1) {
+                cout << dvars << " = " << ivar + dvars << "\n\n";
+            }
+        }
+        else if (dper == 1) {
+            cout << dvar << " " << AGAplus << " ";
+            if (ipers == 1) {
+                cout << ivars << " = " << dvar + ivars << "\n\n";
+            }
+            else if (dpers == 1) {
+                cout << dvars << " = " << dvar + dvars << "\n\n";
+            }
+        }
+    }
+    else if (mins == 1) {
+        if (iper == 1) {
+            cout << ivar << " " << AGAminus << " ";
+            if (ipers == 1) {
+                cout << ivars << " = " << ivar - ivars << "\n\n";
+            }
+            else if (dpers == 1) {
+                cout << dvars << " = " << ivar - dvars << "\n\n";
+            }
+        }
+        else if (dper == 1) {
+            cout << dvar << " " << AGAminus << " ";
+            if (ipers == 1) {
+                cout << ivars << " = " << dvar - ivars << "\n\n";
+            }
+            else if (dpers == 1) {
+                cout << dvars << " = " << dvar - dvars << "\n\n";
+            }
+        }
+    }
+    else if (umnozh == 1) {
+        if (iper == 1) {
+            cout << ivar << " " << AGAumnozh << " ";
+            if (ipers == 1) {
+                cout << ivars << " = " << ivar * ivars << "\n\n";
+            }
+            else if (dpers == 1) {
+                cout << dvars << " = " << ivar * dvars << "\n\n";
+            }
+        }
+        else if (dper == 1) {
+            cout << dvar << " " << AGAumnozh << " ";
+            if (ipers == 1) {
+                cout << ivars << " = " << dvar * ivars << "\n\n";
+            }
+            else if (dpers == 1) {
+                cout << dvars << " = " << dvar * dvars << "\n\n";
+            }
+        }
+    }
+    else if (delen == 1) {
+        if (iper == 1) {
+            cout << ivar << " " << AGAdelen << " ";
+            if (ipers == 1) {
+                cout << ivars << " = " << ivar / ivars << "\n\n";
+            }
+            else if (dpers == 1) {
+                cout << dvars << " = " << ivar / dvars << "\n\n";
+            }
+        }
+        else if (delen == 1) {
+            cout << dvar << " " << AGAdelen << " ";
+            if (ipers == 1) {
+                cout << ivars << " = " << dvar / ivars << "\n\n";
+            }
+            else if (dpers == 1) {
+                cout << dvars << " = " << dvar / dvars << "\n\n";
+            }
+        }
+    }
+}
+
+
